@@ -3,10 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Your Name's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to my portfolio!</h1>
-    <p>This is my website, hosted on GitHub Pages.</p>
+
+    <header>
+        <div class="container">
+            <h1>Your Name</h1>
+            <p>Software Developer | Web Designer | Your Skill</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Hello! I'm a passionate developer with a strong focus on [Your field, e.g., front-end development, data science]. I enjoy creating clean, efficient, and user-friendly websites and applications. I'm always eager to learn new technologies and take on new challenges.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Project One</h3>
+                        <p>A brief description of your project. Mention the technologies used (e.g., HTML, CSS, JavaScript, React).</p>
+                        <a href="https://github.com/yourusername/project-one" target="_blank">View on GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Two</h3>
+                        <p>A brief description of your second project. What problem did it solve? What did you learn?</p>
+                        <a href="https://github.com/yourusername/project-two" target="_blank">View on GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Three</h3>
+                        <p>A description of your third project. Feel free to add more project cards as needed.</p>
+                        <a href="https://github.com/yourusername/project-three" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <p>Feel free to get in touch!</p>
+                <div class="contact-links">
+                    <a href="mailto:youremail@example.com">Email</a>
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
