@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapnil Joshi - Mechanical Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .education-item, .experience-item, .project-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(103, 126, 234, 0.1);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .institution, .company, .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .degree, .position {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .date, .location {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .gpa {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        .description {
+            margin-top: 1rem;
+        }
+
+        .description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .description li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .description li:before {
+            content: "▶";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(103, 126, 234, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .cert-item {
+            background: #27ae60;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            font-weight: 500;
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .leadership-item {
+            background: rgba(39, 174, 96, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #27ae60;
+            margin-bottom: 1rem;
+        }
+
+        .nav {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: #bdc3c7;
+            border-radius: 50%;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item.active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-item active" data-section="header"></div>
+        <div class="nav-item" data-section="education"></div>
+        <div class="nav-item" data-section="skills"></div>
+        <div class="nav-item" data-section="experience"></div>
+        <div class="nav-item" data-section="projects"></div>
+        <div class="nav-item" data-section="certifications"></div>
+        <div class="nav-item" data-section="leadership"></div>
+    </nav>
+
+    <div class="container">
+        <header class="header fade-in" id="header">
+            <h1 class="name">SWAPNIL JOSHI</h1>
+            <p class="title">Mechanical Engineer | Product Development | Design Automation</p>
+            <div class="contact-info">
+                <a href="tel:+18647657801" class="contact-item">
+                    📞 +1 (864) 765-7801
+                </a>
+                <a href="mailto:swapniljoshi657@gmail.com" class="contact-item">
+                    ✉️ swapniljoshi657@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/swapniljoshi31" class="contact-item" target="_blank">
+                    🔗 LinkedIn Profile
+                </a>
+                <div class="contact-item">
+                    📍 Clemson, SC, USA
+                </div>
+            </div>
+        </header>
+
+        <section class="section fade-in" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <div class="institution">Clemson University</div>
+                <div class="degree">Master's in Mechanical Engineering</div>
+                <div class="date">August 2023 - May 2025</div>
+                <div class="gpa">GPA: 3.2</div>
+                <div class="description">
+                    <strong>Relevant Coursework:</strong> Manufacturing Processes, Product Design, Intro to FEA, Design Automation, Material Selection
+                </div>
+            </div>
+            <div class="education-item">
+                <div class="institution">Savitribai Phule Pune University</div>
+                <div class="degree">Bachelor's in Mechanical Engineering</div>
+                <div class="date">July 2018 - June 2022</div>
+                <div class="gpa">GPA: 3.5</div>
+                <div class="description">
+                    <strong>Relevant Coursework:</strong> Design and Product Development, Material Science, Machine Design, Industrial Engineering
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Software Packages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Creo</span>
+                        <span class="skill-tag">Siemens NX</span>
+                        <span class="skill-tag">CATIA</span>
+                        <span class="skill-tag">ANSYS</span>
+                        <span class="skill-tag">AutoCAD</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Testing & Validation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Product Development Testing</span>
+                        <span class="skill-tag">Performance Testing</span>
+                        <span class="skill-tag">Prototype Validation</span>
+                        <span class="skill-tag">Root Cause Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Manufacturing Processes</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">DFM/DFA</span>
+                        <span class="skill-tag">CNC Machining</span>
+                        <span class="skill-tag">Casting</span>
+                        <span class="skill-tag">Welding</span>
+                        <span class="skill-tag">Quality Control</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Productivity Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Excel</span>
+                        <span class="skill-tag">PowerPoint</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-item">
+                <div class="company">Manufast.in</div>
+                <div class="position">Product Design and Development Engineer Intern</div>
+                <div class="location">India | December 2022 – June 2023</div>
+                <div class="description">
+                    <ul>
+                        <li>Led design optimization efforts resulting in 15% reduction in material usage, supporting sustainability and improving cost-efficiency</li>
+                        <li>Improved quality control by conducting rigorous testing on 20+ redesigned components, reducing defect rates by 10%</li>
+                        <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, reducing production time by 20%</li>
+                        <li>Streamlined system reliability by diagnosing system issues, increasing operational uptime and reducing repair frequency by 25%</li>
+                        <li>Collaborated with cross-functional teams to refine product specifications, contributing to 30% increase in production quality</li>
+                        <li>Implemented Lean and Six Sigma principles to eliminate process inefficiencies</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="company">Team MechAgrinics</div>
+                <div class="position">R&D and Digging System Head</div>
+                <div class="location">India | June 2020 – June 2022</div>
+                <div class="description">
+                    <ul>
+                        <li>Conceptualized and developed autonomous onion harvesting system, reducing crop damage by 5%</li>
+                        <li>Engineered machine for diverse field conditions, resulting in 15% increase in harvesting efficiency</li>
+                        <li>Automated mechanical functions enabling 20% reduction in manual labor requirements</li>
+                        <li>Led team of 15 members in designing and manufacturing self-propelled harvester</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="projects">
+            <h2 class="section-title">Academic Projects</h2>
+            <div class="project-item">
+                <div class="project-title">Autonomous 360-degree Fire Extinguisher Robot</div>
+                <div class="date">August 2021 – June 2022</div>
+                <div class="description">
+                    <ul>
+                        <li>Designed and built autonomous robot that maneuvers in various environments to extinguish fires</li>
+                        <li>Created 360-degree fire suppression system enabling efficient fire tackling from any angle</li>
+                        <li>Reduced emergency response time by 25% through innovative design</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-title">Hydraulic Lift and Drop Arm</div>
+                <div class="date">August 2018 – June 2019</div>
+                <div class="description">
+                    <ul>
+                        <li>Developed hydraulic solution to facilitate smoother operations for heavy loads</li>
+                        <li>Reduced manual handling time by 30% and decreased workplace injury reports</li>
+                        <li>Optimized system design for improved safety and operational efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="certifications">
+            <h2 class="section-title">Certifications & Publications</h2>
+            <div class="certifications">
+                <div class="cert-item">Introduction to Self Driving Cars</div>
+                <div class="cert-item">Self-Propelled Onion Harvester</div>
+            </div>
+            <div class="description" style="margin-top: 2rem;">
+                <h3 style="color: #2c3e50; margin-bottom: 1rem;">Publication</h3>
+                <p><strong>"Design and Development of a 360-degree Fire Extinguisher Robot using Microcontroller"</strong><br>
+                Authors: Panat, Shrirang Sandip, Parth Patil, Swapnil Joshi, and David Gaikwad<br>
+                Published: 9(5), 547-551, May 2022</p>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="leadership">
+            <h2 class="section-title">Leadership & Management</h2>
+            <div class="leadership-item">
+                <div class="company">Team MechAgrinics - R&D and Digging System Head</div>
+                <div class="description">
+                    <ul>
+                        <li>Led team of 15 in designing and manufacturing Self-Propelled Onion Harvester</li>
+                        <li>Achieved AIR 5 ranking and Best Design Award</li>
+                        <li>Conducted seminars on Design of CNC Laser Engraver</li>
+                        <li>Planned and managed educational seminars featuring industry professionals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Update navigation
+                    const id = entry.target.id;
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    const navItem = document.querySelector(`[data-section="${id}"]`);
+                    if (navItem) {
+                        navItem.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation click handlers
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const section = item.getAttribute('data-section');
+                document.getElementById(section).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add hover effects to skill tags
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', () => {
+                tag.style.transform = 'scale(1.1)';
+                tag.style.boxShadow = '0 4px 12px rgba(103, 126, 234, 0.3)';
+            });
+            tag.addEventListener('mouseleave', () => {
+                tag.style.transform = 'scale(1)';
+                tag.style.boxShadow = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
