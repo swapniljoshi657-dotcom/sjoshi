@@ -89,30 +89,30 @@
             margin: 5px 0 20px;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .contact-info a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-color);
-        }
-
         /* --- Navigation Cards --- */
         .nav-cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            display: flex;
+            justify-content: center; /* Center the cards horizontally */
+            flex-wrap: nowrap; /* Forces cards into a single row */
             gap: 20px;
             margin-bottom: 30px;
             text-align: center;
+            overflow-x: auto; /* Enables horizontal scrolling for small screens */
+            padding-bottom: 10px; /* Space for the scrollbar */
+        }
+
+        /* Style the scrollbar for aesthetics */
+        .nav-cards-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .nav-cards-container::-webkit-scrollbar-thumb {
+            background-color: var(--subtle-color);
+            border-radius: 3px;
+        }
+
+        .nav-cards-container::-webkit-scrollbar-track {
+            background: transparent;
         }
 
         .nav-card {
@@ -126,6 +126,7 @@
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             font-weight: bold;
             font-size: 1rem;
+            flex-shrink: 0; /* Prevents cards from shrinking */
         }
 
         .nav-card:hover {
@@ -221,6 +222,26 @@
             transform: translateY(-2px);
         }
 
+        /* --- Contact Info within its own section --- */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center; /* Center the links */
+        }
+
+        .contact-info a, .contact-info span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
         /* --- Responsiveness --- */
         @media (max-width: 768px) {
             .container {
@@ -249,12 +270,6 @@
         <header>
             <h1>SWAPNIL JOSHI</h1>
             <p>Mechanical Engineer | Product Designer | Problem Solver</p>
-            <div class="contact-info">
-                <a href="tel:+18647657801">+1 (864) 765-7801</a> |
-                <a href="mailto:swapniljoshi657@gmail.com">swapniljoshi657@gmail.com</a> |
-                <span>Clemson, SC, USA</span> |
-                <a href="https://linkedin.com/in/swapniljoshi31" target="_blank">LinkedIn</a>
-            </div>
         </header>
 
         <!-- Navigation Cards -->
@@ -265,6 +280,7 @@
             <a href="#education" class="nav-card">EDUCATION</a>
             <a href="#projects" class="nav-card">PROJECTS</a>
             <a href="#publications" class="nav-card">CERTIFICATIONS</a>
+            <a href="#contact" class="nav-card">CONTACT</a>
         </nav>
     </div>
 
@@ -364,6 +380,19 @@
       </ul>
       <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-content">
+        <h2>CONTACT</h2>
+        <div class="contact-info animated-section-item">
+            <a href="tel:+18647657801">📞 +1 (864) 765-7801</a>
+            <a href="mailto:swapniljoshi657@gmail.com">📧 swapniljoshi657@gmail.com</a>
+            <a href="https://linkedin.com/in/swapniljoshi31" target="_blank">💼 LinkedIn</a>
+            <span>📍 Clemson, SC, USA</span>
+        </div>
+        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
+    </section>
+
 </div>
 
 <script>
