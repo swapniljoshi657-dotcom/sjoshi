@@ -225,9 +225,11 @@
         /* --- Contact Info within its own section --- */
         .contact-info {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center; /* Center the links */
+            flex-direction: row;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
         }
 
         .contact-info a, .contact-info span {
@@ -374,9 +376,10 @@
       <h2>CERTIFICATIONS & PUBLICATIONS</h2>
       <ul class="animated-section-item" style="--delay: 0.1s;">
         <li>Introduction to Self Driving Cars</li>
-        <li><a href="https://www.linkedin.com/in/swapniljoshi31/details/certifications/1747529847596/single-media-viewer?type=IMAGE&profileId=ACoAADNGAAYBBEeaRT2xfYpw7RQ7EDd02PIKd6Q&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bj9iMSh%2FmSbm%2Fm%2FNIwJE%2Fng%3D%3D" target="_blank">Six Sigma Green Belt</li>
+        <li>Six Sigma Green Belt</li>
         <li>Introduction to Geometric Dimensioning and Tolerancing</li>
-        <li><a href="https://www.irjet.net/archives/V9/i5/IRJET-V9I5181.pdf" target="_blank">Panat, Shrirang Sandip, Parth Patil, Swapnil Joshi, and David Gaikwad. "Design and Development of a 360-degree Fire Extinguisher Robot using Microcontroller", 9(5), 547-551, May 2022</a></li>
+        <!-- To link your publication, replace the example URL below with your actual publication's URL -->
+        <li><a href="https://example-publication-url.com" target="_blank">Panat, Shrirang Sandip, Parth Patil, Swapnil Joshi, and David Gaikwad. "Design and Development of a 360-degree Fire Extinguisher Robot using Microcontroller", 9(5), 547-551, May 2022</a></li>
       </ul>
       <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
     </section>
