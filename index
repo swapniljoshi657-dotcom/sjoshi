@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swapnil Joshi - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Swapnil Joshi</h1>
+    <p>
+      <a href="tel:+18647657801">+1 (864) 765-7801</a> | 
+      <a href="mailto:swapniljoshi657@gmail.com">swapniljoshi657@gmail.com</a> | 
+      Clemson, SC, USA | 
+      <a href="https://linkedin.com/in/swapniljoshi31" target="_blank">LinkedIn</a>
+    </p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Clemson University</strong> (Aug 2023 – May 2025) <br> Master’s, Mechanical Engineering | GPA: 3.2</li>
+        <li><strong>Savitribai Phule Pune University</strong> (Jul 2018 – Jun 2022) <br> Bachelor’s, Mechanical Engineering | GPA: 3.5</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Skills</h2>
+      <p><strong>Software:</strong> SolidWorks, Creo, Siemens NX, CATIA, ANSYS, AutoCAD</p>
+      <p><strong>Testing & Validation:</strong> Product Development, Emissions Testing, Prototype Validation, RCA</p>
+      <p><strong>Manufacturing:</strong> DFM/DFA, CNC Machining, Casting, Welding, QC</p>
+      <p><strong>Tools:</strong> Excel (Macros), PowerPoint, Word, Outlook</p>
+      <p><strong>Soft Skills:</strong> Communication, Documentation, Independent Task Management</p>
+    </section>
+
+    <section class="card">
+      <h2>Experience</h2>
+      <h3>Product Design & Development Engineer Intern – Manufast.in (Dec 2022 – Jun 2023)</h3>
+      <ul>
+        <li>Led design optimization, reducing material usage by 15%.</li>
+        <li>Improved quality control, lowering defects by 10%.</li>
+        <li>Optimized assembly processes, reducing production time by 20%.</li>
+        <li>Applied Lean & Six Sigma principles to streamline processes.</li>
+      </ul>
+
+      <h3>R&D and Digging System Head – Team MechAgrinics (Jun 2020 – Jun 2022)</h3>
+      <ul>
+        <li>Designed autonomous onion harvester, improving efficiency by 15%.</li>
+        <li>Reduced labor requirements by 20% with automation.</li>
+        <li>Led a team of 15, winning Best Design Award and AIR 5.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Fire Extinguisher Robot:</strong> 360-degree autonomous system reducing response time by 25%.</li>
+        <li><strong>Hydraulic Lift & Drop Arm:</strong> Reduced manual handling time by 30%.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Certifications & Publications</h2>
+      <ul>
+        <li>Introduction to Self Driving Cars</li>
+        <li>Publication: 360-degree Fire Extinguisher Robot (May 2022)</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Leadership</h2>
+      <ul>
+        <li>Led Self-Propelled Onion Harvester project, AIR 5 & Best Design Award.</li>
+        <li>Organized technical seminars and guest lectures.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
