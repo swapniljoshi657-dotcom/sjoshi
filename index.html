@@ -1,449 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swapnil Joshi's Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swapnil Joshi - Mechanical Engineer Portfolio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-        :root {
-            --bg-color: #121212;
-            --card-bg-color: #1e1e1e;
-            --text-color: #e0e0e0;
-            --heading-color: #ffffff;
-            --accent-color: #bb86fc; /* A nice purple for accents */
-            --subtle-color: #888888;
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #1a0a3d; /* dark purple background */
+            color: #ddd;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* --- Animations --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .animated-card {
-            animation: fadeIn 0.8s ease-out;
-        }
-        
-        /* Apply this to individual items within a section */
-        .animated-item {
-            animation: fadeInUp 0.7s ease-out both;
-        }
-
-        /* Additional animation for section content */
-        .animated-section-item {
-            animation: scaleIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-            opacity: 0; /* Ensure it's hidden before animation */
-        }
-        
-        section.visible .animated-section-item {
-            animation-play-state: running;
-            transition-delay: var(--delay);
-        }
-
-        /* --- Header & Contact Info --- */
         header {
+            background-color: #2e1a66; /* darker purple */
+            color: #e0d7f5;
+            padding: 1.5rem 2rem;
             text-align: center;
-            padding: 50px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.7);
         }
-
         header h1 {
-            color: var(--heading-color);
-            font-size: 3rem;
             margin: 0;
-        }
-
-        header p {
-            color: var(--subtle-color);
-            margin: 5px 0 20px;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 15px rgba(187, 134, 252, 0.5);
-            object-fit: cover;
-            margin: 20px auto;
-        }
-
-        /* --- Navigation Cards --- */
-        .nav-cards-container {
-            display: flex;
-            justify-content: center; /* Center the cards horizontally */
-            flex-wrap: nowrap; /* Prevents wrapping by default */
-            gap: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-            overflow-x: auto; /* Enables horizontal scrolling for small screens */
-            padding-bottom: 10px; /* Space for the scrollbar */
-        }
-
-        /* Style the scrollbar for aesthetics */
-        .nav-cards-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .nav-cards-container::-webkit-scrollbar-thumb {
-            background-color: var(--subtle-color);
-            border-radius: 3px;
-        }
-
-        .nav-cards-container::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .nav-card {
-            background-color: var(--card-bg-color);
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 20px 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--subtle-color);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            font-weight: bold;
-            font-size: 1rem;
-            flex-shrink: 0; /* Prevents cards from shrinking */
-        }
-
-        .nav-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
-        }
-
-        /* --- Sections --- */
-        section {
-            background-color: var(--card-bg-color);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            display: none; /* Initially hidden */
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        section.visible {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        h2 {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            color: #cbb9ff;
         }
-
-        /* --- Professional Experience & Academic Projects --- */
-        .experience-item, .project-item {
-            margin-bottom: 25px;
+        header p {
+            margin: 0.3rem 0 0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #b3a1ff;
         }
-
-        .experience-header, .project-header {
-            /* flex properties removed to allow stacking */
-            display: block;
+        main {
+            max-width: 900px;
+            margin: 2rem auto 4rem;
+            padding: 0 1rem;
+            text-align: center;
         }
-
-        .experience-header h3, .project-header h3 {
-            color: var(--heading-color);
-            font-size: 1.5rem;
-            margin: 0 0 5px 0; /* Add margin to separate from the span */
+        /* Profile picture container */
+        .profile-pic-container {
+            margin-bottom: 2rem;
         }
-
-        .experience-header span, .project-header span {
-            color: var(--subtle-color);
-            font-style: italic;
-            display: block; /* Ensure it's on a new line */
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #4a3a9e;
+            box-shadow: 0 0 15px #7e6fff;
+            transition: box-shadow 0.3s ease;
         }
-        
-        ul {
-            list-style: none;
-            padding-left: 0;
+        .profile-pic:hover {
+            box-shadow: 0 0 25px #a18fff;
         }
-        
-        ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-        }
-        
-        ul li::before {
-            content: '•';
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-        }
-        
-        /* --- Back Button --- */
-        .back-button {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
+        /* Card styles */
+        .card {
+            background: #3b2a72; /* medium dark purple */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            margin-bottom: 1.5rem;
             cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding: 1.5rem 2rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            user-select: none;
+            text-align: left;
+            color: #dcd6f7;
         }
-
-        .back-button:hover {
-            background-color: #a46afb;
-            transform: translateY(-2px);
+        .card:hover {
+            box-shadow: 0 12px 30px rgba(107, 84, 255, 0.8);
+            transform: translateY(-5px);
+            background-color: #4a3a9e;
+            color: #f0eaff;
         }
-
-        /* --- Contact Info within its own section --- */
-        .contact-info {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-            justify-content: center;
-            gap: 20px;
-            align-items: center;
+        .card h2 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: inherit;
         }
-
-        .contact-info a, .contact-info span {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--text-color);
+        .card .toggle-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            transition: transform 0.3s ease;
+            font-size: 1.5rem;
+            color: #cbb9ff;
+            pointer-events: none;
+        }
+        .card.expanded .toggle-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        /* Content panel */
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            background: #2e1a66; /* darker purple */
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            padding: 0 2rem;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            font-size: 1rem;
+            color: #dcd6f7;
+            text-align: left;
+        }
+        .content.expanded {
+            padding: 1rem 2rem 2rem;
+            max-height: 2000px; /* large enough to show content */
+        }
+        /* Headings inside content */
+        .content h3 {
+            color: #b3a1ff;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0;
+        }
+        .content ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            color: #dcd6f7;
+        }
+        /* Links inside content */
+        .content a {
+            color: #a18fff;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
-        .contact-info a:hover {
-            color: var(--accent-color);
+        .content a:hover {
+            color: #e0d7f5;
+            text-decoration: underline;
         }
-
-        /* --- Responsiveness --- */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
+        /* Responsive */
+        @media (max-width: 600px) {
             header h1 {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
             }
-            .nav-cards-container {
-                flex-wrap: wrap;
-                gap: 10px;
+            .profile-pic {
+                width: 120px;
+                height: 120px;
             }
-            .nav-card {
-                padding: 15px 8px;
+            .card h2 {
+                font-size: 1.4rem;
             }
-            .experience-header, .project-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .content {
+                padding: 0 1rem;
             }
-            .experience-header span, .project-header span {
-                margin-top: 5px;
+            .content.expanded {
+                padding: 1rem 1rem 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Swapnil Joshi</h1>
+        <p>Mechanical Engineer | Product Design & Development</p>
+    </header>
 
-<div class="container">
-    <div id="main-view">
-        <header>
-            <img src="SAVE_20220706_143930.jpg" alt="Swapnil Joshi" class="profile-pic">
-            <h1>SWAPNIL JOSHI</h1>
-            <p>Mechanical Engineer | Product Designer | Problem Solver</p>
-        </header>
+    <main>
+        <div class="profile-pic-container">
+            <img 
+                src="https://via.placeholder.com/160" 
+                alt="Swapnil Joshi Profile Picture" 
+                class="profile-pic" 
+                loading="lazy"
+            />
+        </div>
 
-        <!-- Navigation Cards -->
-        <nav class="nav-cards-container animated-card">
-            <a href="#about" class="nav-card">ABOUT</a>
-            <a href="Resume_SJ_.pdf" class="nav-card" target="_blank">RESUME</a>
-            <a href="#experience" class="nav-card">EXPERIENCE</a>
-            <a href="#education" class="nav-card">EDUCATION</a>
-            <a href="#projects" class="nav-card">PROJECTS</a>
-            <a href="#publications" class="nav-card">CERTIFICATIONS</a>
-            <a href="#contact" class="nav-card">CONTACT</a>
-        </nav>
-    </div>
+        <!-- About Me Card -->
+        <div class="card" tabindex="0" aria-expanded="false" aria-controls="about-content" role="button" id="about-card">
+            <h2>ABOUT ME</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="about-content" aria-hidden="true">
+            <p>
+                I am a Mechanical Engineer currently pursuing my Master's at Clemson University with a focus on Manufacturing Processes, Product Design, and Finite Element Analysis. I have hands-on experience in product design, testing, validation, and manufacturing process optimization. Passionate about sustainable design and automation, I strive to create efficient and innovative engineering solutions.
+            </p>
+        </div>
 
-    <!-- About Section -->
-    <section id="about" class="section-content">
-        <h2>ABOUT ME</h2>
-        <p class="animated-section-item">
-            I am a passionate and results-driven Mechanical Engineer and Product Designer with a knack for problem-solving. My professional and academic experience has equipped me with strong skills in design optimization, process efficiency, and product validation. I am dedicated to creating innovative solutions that not only meet engineering requirements but also improve user experience and reduce production costs. I am always eager to take on new challenges and contribute my expertise to a dynamic team.
-        </p>
-        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section-content">
-        <h2>PROFESSIONAL EXPERIENCE</h2>
-        <div class="experience-item animated-section-item" style="--delay: 0.1s;">
-            <div class="experience-header">
-                <h3>PRODUCT DESIGN AND DEVELOPMENT ENGINEER INTERN</h3>
-                <span>Manufast.in, India | December 2022 - June 2023</span>
-            </div>
+        <!-- Experience Card -->
+        <div class="card" tabindex="0" aria-expanded="false" aria-controls="experience-content" role="button" id="experience-card">
+            <h2>PROFESSIONAL EXPERIENCE</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="experience-content" aria-hidden="true">
+            <h3>Product Design and Development Engineer Intern - Manufast.in (Dec 2022 – Jun 2023)</h3>
             <ul>
-                <li>Led design optimization efforts that resulted in a 15% reduction in material usage, supporting sustainability and improving cost-efficiency.</li>
-                <li><li>Improved quality control by conducting rigorous testing and validation on over 20 redesigned product components, which reduced defect rates by 10%.</li></li>
-                <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, reducing production time by 20% and significantly improving overall throughput.</li>
+                <li>Led design optimization efforts reducing material usage by 15%, improving cost-efficiency and sustainability.</li>
+                <li>Improved quality control by testing over 20 redesigned components, reducing defect rates by 10%.</li>
+                <li>Enhanced manufacturing efficiency by optimizing assembly processes, reducing production time by 20%.</li>
+                <li>Collaborated with cross-functional teams to increase production quality and efficiency by 30%.</li>
+                <li>Implemented Lean and Six Sigma methodologies to eliminate process inefficiencies and speed up project delivery.</li>
+            </ul>
+
+            <h3>R&D and Digging System Head - Team MechAgrinics (Jun 2020 – Jun 2022)</h3>
+            <ul>
+                <li>Designed and developed an autonomous onion harvesting system reducing crop damage by 5% and increasing harvesting efficiency by 15%.</li>
+                <li>Engineered the machine for diverse field conditions, optimizing traction and mechanical adaptability.</li>
+                <li>Automated key mechanical functions, reducing manual labor requirements by 20% and improving safety.</li>
+                <li>Led a team of 15, achieving AIR 5 and Best Design Award for the self-propelled onion harvester.</li>
             </ul>
         </div>
-        <div class="experience-item animated-section-item" style="--delay: 0.2s;">
-            <div class="experience-header">
-                <h3>R&D AND DIGGING SYSTEM HEAD</h3>
-                <span>Team MechAgrinics, India | June 2020 - June 2022</span>
-            </div>
+
+        <!-- Projects Card -->
+        <div class="card" tabindex="0" aria-expanded="false" aria-controls="projects-content" role="button" id="projects-card">
+            <h2>ACADEMIC PROJECTS</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="projects-content" aria-hidden="true">
+            <h3>Autonomous 360-degree Fire Extinguisher Robot (Aug 2021 – Jun 2022)</h3>
             <ul>
-                <li>Conceptualized, designed, and developed an autonomous onion harvesting system aimed at minimizing post-harvest losses and increasing operational efficiency.</li>
-                <li>Engineered for diverse field conditions, the machine was optimized for traction, balance, and mechanical adaptability across varying soil types and terrains.</li>
-                <li>Automated key mechanical functions, including digging, lifting, and conveyance systems, which significantly decreased the need for manual intervention and enabled a 20% reduction in manual labor requirements.</li>
+                <li>Designed and built a robot capable of extinguishing fires from any angle, reducing emergency response time by 25%.</li>
+            </ul>
+
+            <h3>Hydraulic Lift and Drop Arm (Aug 2018 – Jun 2019)</h3>
+            <ul>
+                <li>Developed a hydraulic lift and drop arm to facilitate heavy load movement, reducing manual handling time by 30% and decreasing injury reports.</li>
             </ul>
         </div>
-        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
-    </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section-content">
-        <h2>EDUCATION</h2>
-        <div class="experience-item animated-section-item" style="--delay: 0.1s;">
-            <div class="experience-header">
-                <h3>CLEMSON UNIVERSITY</h3>
-                <span>August 2023 - May 2025</span>
-            </div>
-            <p>Master's, Mechanical Engineering</p>
-            <p><strong>Relevant Coursework:</strong> Manufacturing Processes, Product Design, Intro to FEA, Design Automation, Material Selection.</p>
+        <!-- Education Card -->
+        <div class="card" tabindex="0" aria-expanded="false" aria-controls="education-content" role="button" id="education-card">
+            <h2>EDUCATION</h2>
+            <span class="toggle-icon">&#9660;</span>
         </div>
-        <div class="experience-item animated-section-item" style="--delay: 0.2s;">
-            <div class="experience-header">
-                <h3>SAVITRIBAI PHULE PUNE UNIVERSITY</h3>
-                <span>July 2018 - June 2022</span>
-            </div>
-            <p>Bachelor's, Mechanical Engineering</p>
+        <div class="content" id="education-content" aria-hidden="true">
+            <h3>Clemson University (Aug 2023 – May 2025)</h3>
+            <p>Master's in Mechanical Engineering | GPA: 3.2</p>
+            <p><strong>Relevant Coursework:</strong> Manufacturing Processes, Product Design, Intro to FEA, Design Automation, Material Selection</p>
+
+            <h3>Savitribai Phule Pune University (Jul 2018 – Jun 2022)</h3>
+            <p>Bachelor's in Mechanical Engineering | GPA: 3.5</p>
             <p><strong>Relevant Coursework:</strong> Design and Product Development, Material Science, Machine Design, Industrial Engineering</p>
         </div>
-        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section-content">
-        <h2>ACADEMIC PROJECTS</h2>
-        <div class="project-item animated-section-item" style="--delay: 0.1s;">
-            <div class="project-header">
-                <h3>AUTONOMOUS 360-DEGREE FIRE EXTINGUISHER ROBOT</h3>
-                <span>August 2021 - June 2022</span>
-            </div>
-            <ul>
-                <li>Designed and built an autonomous robot that maneuvers in various environments to extinguish fires.</li>
-                <li>Created a 360-degree fire suppression system enabling it to tackle fires from any angle efficiently and reducing emergency response time by 25%.</li>
-            </ul>
+        <!-- Contact Card -->
+        <div class="card" tabindex="0" aria-expanded="false" aria-controls="contact-content" role="button" id="contact-card">
+            <h2>CONTACT</h2>
+            <span class="toggle-icon">&#9660;</span>
         </div>
-        <div class="project-item animated-section-item" style="--delay: 0.2s;">
-            <div class="project-header">
-                <h3>HYDRAULIC LIFT AND DROP ARM</h3>
-                <span>August 2018 - June 2019</span>
-            </div>
-            <ul>
-                <li>Developed a hydraulic lift and drop arm solution to facilitate smoother operations and move heavy loads.</li>
-                <li>Reduced manual handling time by 30% and decreased injury reports among staff.</li>
-            </ul>
+        <div class="content" id="contact-content" aria-hidden="true">
+            <p>Email: <a href="mailto:swapniljoshi657@gmail.com">swapniljoshi657@gmail.com</a></p>
+            <p>Phone: +1 (864) 765 - 7801</p>
+            <p>Location: Clemson, SC, USA</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer">linkedin.com/in/swapniljoshi31</a></p>
         </div>
-        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
-    </section>
-    
-    <!-- Certifications & Publications Section -->
-    <section id="publications" class="section-content">
-      <h2>CERTIFICATIONS & PUBLICATIONS</h2>
-      <ul class="animated-section-item" style="--delay: 0.1s;">
-        <li>Introduction to Self Driving Cars</li>
-        <li>Six Sigma Green Belt</li>
-        <li>Introduction to Geometric Dimensioning and Tolerancing</li>
-        <!-- To link your publication, replace the example URL below with your actual publication's URL -->
-        <li><a href="https://example-publication-url.com" target="_blank">Panat, Shrirang Sandip, Parth Patil, Swapnil Joshi, and David Gaikwad. "Design and Development of a 360-degree Fire Extinguisher Robot using Microcontroller", 9(5), 547-551, May 2022</a></li>
-      </ul>
-      <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
-    </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-content">
-        <h2>CONTACT</h2>
-        <div class="contact-info animated-section-item">
-            <a href="tel:+18647657801">📞 +1 (864) 765-7801</a>
-            <a href="mailto:swapniljoshi657@gmail.com">📧 swapniljoshi657@gmail.com</a>
-            <a href="https://linkedin.com/in/swapniljoshi31" target="_blank">💼 LinkedIn</a>
-            <span>📍 Clemson, SC, USA</span>
-        </div>
-        <button class="back-button" onclick="window.location.href='index.html'">Back to Home</button>
-    </section>
+    <footer style="background-color:#2e1a66; color:#cbb9ff; text-align:center; padding:1rem;">
+        &copy; 2024 Swapnil Joshi. All rights reserved.
+    </footer>
 
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const mainView = document.getElementById('main-view');
-    const sections = document.querySelectorAll('.section-content');
-    const navCards = document.querySelectorAll('.nav-card');
-
-    // Add click event listeners to all navigation cards
-    navCards.forEach(card => {
-        card.addEventListener('click', (event) => {
-            const targetId = card.getAttribute('href').substring(1);
-            if (card.getAttribute('href').startsWith('#')) {
-                event.preventDefault();
-
-                // Hide the main view
-                mainView.style.display = 'none';
-
-                // Show the target section and apply animations
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.add('visible');
-                    const animatedItems = targetSection.querySelectorAll('.animated-section-item');
-                    animatedItems.forEach((item, index) => {
-                        item.style.setProperty('--delay', `${index * 0.1}s`);
-                    });
-                    window.scrollTo(0, 0); // Scroll to the top of the page
+    <script>
+        // Toggle content visibility on card click or keyboard enter/space
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => toggleCard(card));
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCard(card);
                 }
-            }
+            });
         });
-    });
-});
-</script>
 
+        function toggleCard(card) {
+            const contentId = card.getAttribute('aria-controls');
+            const content = document.getElementById(contentId);
+            const expanded = card.classList.contains('expanded');
+
+            if (expanded) {
+                // Collapse
+                card.classList.remove('expanded');
+                card.setAttribute('aria-expanded', 'false');
+                content.classList.remove('expanded');
+                content.setAttribute('aria-hidden', 'true');
+            } else {
+                // Expand
+                card.classList.add('expanded');
+                card.setAttribute('aria-expanded', 'true');
+                content.classList.add('expanded');
+                content.setAttribute('aria-hidden', 'false');
+
+                // Scroll to the card smoothly
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
 </body>
 </html>
