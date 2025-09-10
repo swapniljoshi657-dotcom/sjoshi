@@ -1,307 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Swapnil Joshi - Mechanical Engineer Portfolio</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #1a0a3d; /* dark purple background */
-            color: #ddd;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        header {
-            background-color: #2e1a66; /* darker purple */
-            color: #e0d7f5;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #cbb9ff;
-        }
-        header p {
-            margin: 0.3rem 0 0;
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #b3a1ff;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto 4rem;
-            padding: 0 1rem;
-            text-align: center;
-        }
-        /* Profile picture container */
-        .profile-pic-container {
-            margin-bottom: 2rem;
-        }
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #4a3a9e;
-            box-shadow: 0 0 15px #7e6fff;
-            transition: box-shadow 0.3s ease;
-        }
-        .profile-pic:hover {
-            box-shadow: 0 0 25px #a18fff;
-        }
-        /* Card styles */
-        .card {
-            background: #3b2a72; /* medium dark purple */
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-            margin-bottom: 1.5rem;
-            cursor: pointer;
-            padding: 1.5rem 2rem;
-            transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-            position: relative;
-            user-select: none;
-            text-align: left;
-            color: #dcd6f7;
-        }
-        .card:hover {
-            box-shadow: 0 12px 30px rgba(107, 84, 255, 0.8);
-            transform: translateY(-5px);
-            background-color: #4a3a9e;
-            color: #f0eaff;
-        }
-        .card h2 {
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            color: inherit;
-        }
-        .card .toggle-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(0deg);
-            transition: transform 0.3s ease;
-            font-size: 1.5rem;
-            color: #cbb9ff;
-            pointer-events: none;
-        }
-        .card.expanded .toggle-icon {
-            transform: translateY(-50%) rotate(180deg);
-        }
-        /* Content panel */
-        .content {
-            max-height: 0;
-            overflow: hidden;
-            background: #2e1a66; /* darker purple */
-            border-radius: 0 0 12px 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-            padding: 0 2rem;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-            font-size: 1rem;
-            color: #dcd6f7;
-            text-align: left;
-        }
-        .content.expanded {
-            padding: 1rem 2rem 2rem;
-            max-height: 2000px; /* large enough to show content */
-        }
-        /* Headings inside content */
-        .content h3 {
-            color: #b3a1ff;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .content ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-top: 0;
-        }
-        .content ul li {
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-            color: #dcd6f7;
-        }
-        /* Links inside content */
-        .content a {
-            color: #a18fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .content a:hover {
-            color: #e0d7f5;
-            text-decoration: underline;
-        }
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
-            .card h2 {
-                font-size: 1.4rem;
-            }
-            .content {
-                padding: 0 1rem;
-            }
-            .content.expanded {
-                padding: 1rem 1rem 2rem;
-            }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swapnil Joshi - Mechanical Engineer Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #1a0a3d; /* dark purple background */
+            color: #ddd;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #2e1a66; /* darker purple */
+            color: #e0d7f5;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #cbb9ff;
+        }
+        header p {
+            margin: 0.3rem 0 0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #b3a1ff;
+        }
+        main {
+            max-width: 900px;
+            margin: 2rem auto 4rem;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        /* Profile picture container */
+        .profile-pic-container {
+            margin-bottom: 2rem;
+        }
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #4a3a9e;
+            box-shadow: 0 0 15px #7e6fff;
+            transition: box-shadow 0.3s ease;
+        }
+        .profile-pic:hover {
+            box-shadow: 0 0 25px #a18fff;
+        }
+        /* Card styles */
+        .card {
+            background: #3b2a72; /* medium dark purple */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            padding: 1.5rem 2rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            user-select: none;
+            text-align: left;
+            color: #dcd6f7;
+        }
+        .card:hover {
+            box-shadow: 0 12px 30px rgba(107, 84, 255, 0.8);
+            transform: translateY(-5px);
+            background-color: #4a3a9e;
+            color: #f0eaff;
+        }
+        .card h2 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: inherit;
+        }
+        .card .toggle-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(0deg);
+            transition: transform 0.3s ease;
+            font-size: 1.5rem;
+            color: #cbb9ff;
+            pointer-events: none;
+        }
+        .card.expanded .toggle-icon {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        /* Content panel */
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            background: #2e1a66; /* darker purple */
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            padding: 0 2rem;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            font-size: 1rem;
+            color: #dcd6f7;
+            text-align: left;
+        }
+        .content.expanded {
+            padding: 1rem 2rem 2rem;
+            max-height: 2000px; /* large enough to show content */
+        }
+        /* Headings inside content */
+        .content h3 {
+            color: #b3a1ff;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-top: 0;
+        }
+        .content ul li {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            color: #dcd6f7;
+        }
+        /* Links inside content */
+        .content a {
+            color: #a18fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .content a:hover {
+            color: #e0d7f5;
+            text-decoration: underline;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            .card h2 {
+                font-size: 1.4rem;
+            }
+            .content {
+                padding: 0 1rem;
+            }
+            .content.expanded {
+                padding: 1rem 1rem 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Swapnil Joshi</h1>
-        <p>Mechanical Engineer | Product Design & Development</p>
-    </header>
+    <header>
+        <h1>Swapnil Joshi</h1>
+        <p>Mechanical Engineer | Product Design & Development</p>
+    </header>
 
-    <main>
-        <div class="profile-pic-container">
-            <img 
-                src="https://via.placeholder.com/160" 
-                alt="Swapnil Joshi Profile Picture" 
-                class="profile-pic" 
-                loading="lazy"
-            />
-        </div>
+    <main>
+        <div class="profile-pic-container">
+            <img 
+                src="https://via.placeholder.com/160" 
+                alt="Swapnil Joshi Profile Picture" 
+                class="profile-pic" 
+                loading="lazy"
+            />
+        </div>
 
-        <!-- About Me Card -->
-        <div class="card" tabindex="0" aria-expanded="false" aria-controls="about-content" role="button" id="about-card">
-            <h2>ABOUT ME</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="about-content" aria-hidden="true">
-            <p>
-                I am a Mechanical Engineer currently pursuing my Master's at Clemson University with a focus on Manufacturing Processes, Product Design, and Finite Element Analysis. I have hands-on experience in product design, testing, validation, and manufacturing process optimization. Passionate about sustainable design and automation, I strive to create efficient and innovative engineering solutions.
-            </p>
-        </div>
+                <div class="card" tabindex="0" aria-expanded="false" aria-controls="about-content" role="button" id="about-card">
+            <h2>ABOUT ME</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="about-content" aria-hidden="true">
+            <p>
+                I am a Mechanical Engineer currently pursuing my Master's at Clemson University with a focus on Manufacturing Processes, Product Design, and Finite Element Analysis. I have hands-on experience in product design, testing, validation, and manufacturing process optimization. Passionate about sustainable design and automation, I strive to create efficient and innovative engineering solutions.
+            </p>
+        </div>
 
-        <!-- Experience Card -->
-        <div class="card" tabindex="0" aria-expanded="false" aria-controls="experience-content" role="button" id="experience-card">
-            <h2>PROFESSIONAL EXPERIENCE</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="experience-content" aria-hidden="true">
-            <h3>Product Design and Development Engineer Intern - Manufast.in (Dec 2022 – Jun 2023)</h3>
-            <ul>
-                <li>Led design optimization efforts reducing material usage by 15%, improving cost-efficiency and sustainability.</li>
-                <li>Improved quality control by testing over 20 redesigned components, reducing defect rates by 10%.</li>
-                <li>Enhanced manufacturing efficiency by optimizing assembly processes, reducing production time by 20%.</li>
-                <li>Collaborated with cross-functional teams to increase production quality and efficiency by 30%.</li>
-                <li>Implemented Lean and Six Sigma methodologies to eliminate process inefficiencies and speed up project delivery.</li>
-            </ul>
+                <div class="card" tabindex="0" aria-expanded="false" aria-controls="experience-content" role="button" id="experience-card">
+            <h2>PROFESSIONAL EXPERIENCE</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="experience-content" aria-hidden="true">
+            <h3>Product Design and Development Engineer Intern - Manufast.in (Dec 2022 – Jun 2023)</h3>
+            <ul>
+                <li>Led design optimization efforts reducing material usage by 15%, improving cost-efficiency and sustainability.</li>
+                <li>Improved quality control by testing over 20 redesigned components, reducing defect rates by 10%.</li>
+                <li>Enhanced manufacturing efficiency by optimizing assembly processes, reducing production time by 20%.</li>
+                <li>Collaborated with cross-functional teams to increase production quality and efficiency by 30%.</li>
+                <li>Implemented Lean and Six Sigma methodologies to eliminate process inefficiencies and speed up project delivery.</li>
+            </ul>
 
-            <h3>R&D and Digging System Head - Team MechAgrinics (Jun 2020 – Jun 2022)</h3>
-            <ul>
-                <li>Designed and developed an autonomous onion harvesting system reducing crop damage by 5% and increasing harvesting efficiency by 15%.</li>
-                <li>Engineered the machine for diverse field conditions, optimizing traction and mechanical adaptability.</li>
-                <li>Automated key mechanical functions, reducing manual labor requirements by 20% and improving safety.</li>
-                <li>Led a team of 15, achieving AIR 5 and Best Design Award for the self-propelled onion harvester.</li>
-            </ul>
-        </div>
+            <h3>R&D and Digging System Head - Team MechAgrinics (Jun 2020 – Jun 2022)</h3>
+            <ul>
+                <li>Designed and developed an autonomous onion harvesting system reducing crop damage by 5% and increasing harvesting efficiency by 15%.</li>
+                <li>Engineered the machine for diverse field conditions, optimizing traction and mechanical adaptability.</li>
+                <li>Automated key mechanical functions, reducing manual labor requirements by 20% and improving safety.</li>
+                <li>Led a team of 15, achieving AIR 5 and Best Design Award for the self-propelled onion harvester.</li>
+            </ul>
+        </div>
 
-        <!-- Projects Card -->
-        <div class="card" tabindex="0" aria-expanded="false" aria-controls="projects-content" role="button" id="projects-card">
-            <h2>ACADEMIC PROJECTS</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="projects-content" aria-hidden="true">
-            <h3>Autonomous 360-degree Fire Extinguisher Robot (Aug 2021 – Jun 2022)</h3>
-            <ul>
-                <li>Designed and built a robot capable of extinguishing fires from any angle, reducing emergency response time by 25%.</li>
-            </ul>
+                <div class="card" tabindex="0" aria-expanded="false" aria-controls="projects-content" role="button" id="projects-card">
+            <h2>ACADEMIC PROJECTS</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="projects-content" aria-hidden="true">
+            <h3>Autonomous 360-degree Fire Extinguisher Robot (Aug 2021 – Jun 2022)</h3>
+            <ul>
+                <li>Designed and built a robot capable of extinguishing fires from any angle, reducing emergency response time by 25%.</li>
+            </ul>
 
-            <h3>Hydraulic Lift and Drop Arm (Aug 2018 – Jun 2019)</h3>
-            <ul>
-                <li>Developed a hydraulic lift and drop arm to facilitate heavy load movement, reducing manual handling time by 30% and decreasing injury reports.</li>
-            </ul>
-        </div>
+            <h3>Hydraulic Lift and Drop Arm (Aug 2018 – Jun 2019)</h3>
+            <ul>
+                <li>Developed a hydraulic lift and drop arm to facilitate heavy load movement, reducing manual handling time by 30% and decreasing injury reports.</li>
+            </ul>
+        </div>
 
-        <!-- Education Card -->
-        <div class="card" tabindex="0" aria-expanded="false" aria-controls="education-content" role="button" id="education-card">
-            <h2>EDUCATION</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="education-content" aria-hidden="true">
-            <h3>Clemson University (Aug 2023 – May 2025)</h3>
-            <p>Master's in Mechanical Engineering | GPA: 3.2</p>
-            <p><strong>Relevant Coursework:</strong> Manufacturing Processes, Product Design, Intro to FEA, Design Automation, Material Selection</p>
+                <div class="card" tabindex="0" aria-expanded="false" aria-controls="education-content" role="button" id="education-card">
+            <h2>EDUCATION</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="education-content" aria-hidden="true">
+            <h3>Clemson University (Aug 2023 – May 2025)</h3>
+            <p>Master's in Mechanical Engineering | GPA: 3.2</p>
+            <p><strong>Relevant Coursework:</strong> Manufacturing Processes, Product Design, Intro to FEA, Design Automation, Material Selection</p>
 
-            <h3>Savitribai Phule Pune University (Jul 2018 – Jun 2022)</h3>
-            <p>Bachelor's in Mechanical Engineering | GPA: 3.5</p>
-            <p><strong>Relevant Coursework:</strong> Design and Product Development, Material Science, Machine Design, Industrial Engineering</p>
-        </div>
+            <h3>Savitribai Phule Pune University (Jul 2018 – Jun 2022)</h3>
+            <p>Bachelor's in Mechanical Engineering | GPA: 3.5</p>
+            <p><strong>Relevant Coursework:</strong> Design and Product Development, Material Science, Machine Design, Industrial Engineering</p>
+        </div>
 
-        <!-- Contact Card -->
-        <div class="card" tabindex="0" aria-expanded="false" aria-controls="contact-content" role="button" id="contact-card">
-            <h2>CONTACT</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="contact-content" aria-hidden="true">
-            <p>Email: <a href="mailto:swapniljoshi657@gmail.com">swapniljoshi657@gmail.com</a></p>
-            <p>Phone: +1 (864) 765 - 7801</p>
-            <p>Location: Clemson, SC, USA</p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer">linkedin.com/in/swapniljoshi31</a></p>
-        </div>
-    </main>
+                <div class="card" tabindex="0" aria-expanded="false" aria-controls="contact-content" role="button" id="contact-card">
+            <h2>CONTACT</h2>
+            <span class="toggle-icon">&#9660;</span>
+        </div>
+        <div class="content" id="contact-content" aria-hidden="true">
+            <p>Email: <a href="mailto:swapniljoshi657@gmail.com">swapniljoshi657@gmail.com</a></p>
+            <p>Phone: +1 (864) 765 - 7801</p>
+            <p>Location: Clemson, SC, USA</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer">linkedin.com/in/swapniljoshi31</a></p>
+        </div>
+    </main>
 
-    <footer style="background-color:#2e1a66; color:#cbb9ff; text-align:center; padding:1rem;">
-        &copy; 2024 Swapnil Joshi. All rights reserved.
-    </footer>
+    <footer style="background-color:#2e1a66; color:#cbb9ff; text-align:center; padding:1rem;">
+        &copy; 2024 Swapnil Joshi. All rights reserved.
+    </footer>
 
-    <script>
-        // Toggle content visibility on card click or keyboard enter/space
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', () => toggleCard(card));
-            card.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggleCard(card);
-                }
-            });
-        });
+    <script>
+        // Toggle content visibility on card click or keyboard enter/space
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => toggleCard(card));
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCard(card);
+                }
+            });
+        });
 
-        function toggleCard(card) {
-            const contentId = card.getAttribute('aria-controls');
-            const content = document.getElementById(contentId);
-            const expanded = card.classList.contains('expanded');
+        function toggleCard(card) {
+            const contentId = card.getAttribute('aria-controls');
+            const content = document.getElementById(contentId);
+            const expanded = card.classList.contains('expanded');
 
-            if (expanded) {
-                // Collapse
-                card.classList.remove('expanded');
-                card.setAttribute('aria-expanded', 'false');
-                content.classList.remove('expanded');
-                content.setAttribute('aria-hidden', 'true');
-            } else {
-                // Expand
-                card.classList.add('expanded');
-                card.setAttribute('aria-expanded', 'true');
-                content.classList.add('expanded');
-                content.setAttribute('aria-hidden', 'false');
+            // If the clicked card is already expanded, collapse it and stop.
+            if (expanded) {
+                card.classList.remove('expanded');
+                card.setAttribute('aria-expanded', 'false');
+                content.classList.remove('expanded');
+                content.setAttribute('aria-hidden', 'true');
+                return;
+            }
+            
+            // Collapse all other cards
+            document.querySelectorAll('.card.expanded').forEach(openCard => {
+                const openContentId = openCard.getAttribute('aria-controls');
+                const openContent = document.getElementById(openContentId);
+                openCard.classList.remove('expanded');
+                openCard.setAttribute('aria-expanded', 'false');
+                openContent.classList.remove('expanded');
+                openContent.setAttribute('aria-hidden', 'true');
+            });
 
-                // Scroll to the card smoothly
-                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    </script>
+            // Expand the clicked card
+            card.classList.add('expanded');
+            card.setAttribute('aria-expanded', 'true');
+            content.classList.add('expanded');
+            content.setAttribute('aria-hidden', 'false');
+
+            // Scroll to the card smoothly
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
 </body>
 </html>
