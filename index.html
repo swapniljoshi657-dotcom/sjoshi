@@ -264,8 +264,8 @@
             }
         });
 
-        // Toggle the mobile menu
-        mobileMenuButton.addEventListener('click', () => {
+        // Function to toggle the mobile menu state
+        function toggleMobileMenu() {
             navMenu.classList.toggle('hidden');
             navMenu.classList.toggle('flex');
             navMenu.classList.toggle('absolute');
@@ -275,7 +275,10 @@
             navMenu.classList.toggle('shadow-lg');
             navMenu.classList.toggle('rounded-lg');
             navMenu.classList.toggle('p-4');
-        });
+        }
+
+        // Add event listener to the mobile menu button
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
 
 
         // Set the current year in the footer
@@ -324,6 +327,12 @@
                     showPage(pageId);
                 } else {
                     showHome();
+                }
+                
+                // Collapse the menu on link click if it's currently visible
+                // and the screen is small (less than 768px, which is Tailwind's 'md' breakpoint)
+                if (!navMenu.classList.contains('hidden') && window.innerWidth < 768) {
+                    toggleMobileMenu();
                 }
             });
         });
