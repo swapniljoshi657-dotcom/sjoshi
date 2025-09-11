@@ -1,313 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Swapnil Joshi - Mechanical Engineer Portfolio</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #1a0a3d; /* dark purple background */
-            color: #ddd;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        header {
-            background-color: #2e1a66; /* darker purple */
-            color: #e0d7f5;
-            padding: 1.5rem 2rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #cbb9ff;
-        }
-        header p {
-            margin: 0.3rem 0 0;
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #b3a1ff;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto 4rem;
-            padding: 0 1rem;
-            text-align: center;
-        }
-        /* Profile picture container */
-        .profile-pic-container {
-            margin-bottom: 2rem;
-        }
-        .profile-pic {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #4a3a9e;
-            box-shadow: 0 0 15px #7e6fff;
-            transition: box-shadow 0.3s ease;
-        }
-        .profile-pic:hover {
-            box-shadow: 0 0 25px #a18fff;
-        }
-        /* Card styles */
-        .card {
-            background: #3b2a72; /* medium dark purple */
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-            margin-bottom: 1.5rem;
-            cursor: pointer;
-            padding: 1.5rem 2rem;
-            transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-            position: relative;
-            user-select: none;
-            text-align: left;
-            color: #dcd6f7;
-        }
-        .card:hover {
-            box-shadow: 0 12px 30px rgba(107, 84, 255, 0.8);
-            transform: translateY(-5px);
-            background-color: #4a3a9e;
-            color: #f0eaff;
-        }
-        .card h2 {
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            color: inherit;
-        }
-        .card .toggle-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(0deg);
-            transition: transform 0.3s ease;
-            font-size: 1.5rem;
-            color: #cbb9ff;
-            pointer-events: none;
-        }
-        .card.expanded .toggle-icon {
-            transform: translateY(-50%) rotate(180deg);
-        }
-        /* Content panel */
-        .content {
-            max-height: 0;
-            overflow: hidden;
-            background: #2e1a66; /* darker purple */
-            border-radius: 0 0 12px 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-            padding: 0 2rem;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-            font-size: 1rem;
-            color: #dcd6f7;
-            text-align: left;
-        }
-        .content.expanded {
-            padding: 1rem 2rem 2rem;
-            max-height: 2000px; /* large enough to show content */
-        }
-        /* Headings inside content */
-        .content h3 {
-            color: #b3a1ff;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        .content ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-top: 0;
-        }
-        .content ul li {
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-            color: #dcd6f7;
-        }
-        /* Links inside content */
-        .content a {
-            color: #a18fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .content a:hover {
-            color: #e0d7f5;
-            text-decoration: underline;
-        }
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
-            .card h2 {
-                font-size: 1.4rem;
-            }
-            .content {
-                padding: 0 1rem;
-            }
-            .content.expanded {
-                padding: 1rem 1rem 2rem;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swapnil Joshi - Portfolio</title>
+    <!-- Use Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Full-screen hero section with background image and overlay */
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa29?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        /* Dark overlay for text readability */
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black */
+        }
+
+        /* Fade-in animation for hero text */
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        /* Add a delay for the second line of text */
+        .fade-in-up-delay {
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .content-section {
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Swapnil Joshi</h1>
-        <p>Mechanical Engineer | Product Design & Development</p>
-    </header>
+<body class="bg-gray-900 text-gray-100">
 
-    <main>
-        <div class="profile-pic-container">
-            <img 
-                src="https://via.placeholder.com/160" 
-                alt="Swapnil Joshi Profile Picture" 
-                class="profile-pic" 
-                loading="lazy"
-            />
-        </div>
+    <!-- Navigation Bar -->
+    <header class="bg-gray-800 shadow-lg fixed top-0 w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-end items-center">
+            <!-- Links and theme toggle on the right -->
+            <div class="flex items-center space-x-6 md:space-x-8 text-lg">
+                <ul class="flex space-x-6 md:space-x-8 text-lg">
+                    <li><a href="#home" class="nav-link hover:text-blue-400 transition duration-300">Home</a></li>
+                    <li><a href="#" data-page-target="about" class="nav-link hover:text-blue-400 transition duration-300">About</a></li>
+                    <li><a href="Resume_SJ_.pdf" target="_blank" rel="noopener noreferrer" class="nav-link hover:text-blue-400 transition duration-300">Resume</a></li>
+                    <li><a href="#" data-page-target="experience" class="nav-link hover:text-blue-400 transition duration-300">Experience</a></li>
+                    <li><a href="#" data-page-target="projects" class="nav-link hover:text-blue-400 transition duration-300">Projects</a></li>
+                    <li><a href="#" data-page-target="contact" class="nav-link hover:text-blue-400 transition duration-300">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                    <i class="fas fa-sun text-gray-300 dark:hidden"></i>
+                    <i class="fas fa-moon text-gray-300 hidden dark:block"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-                <div class="card" tabindex="0" aria-expanded="false" aria-controls="about-content" role="button" id="about-card">
-            <h2>ABOUT ME</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="about-content" aria-hidden="true">
-            <p>
-                I am a Mechanical Engineer currently pursuing my Master's at Clemson University with a focus on Manufacturing Processes, Product Design, and Finite Element Analysis. I have hands-on experience in product design, testing, validation, and manufacturing process optimization. Passionate about sustainable design and automation, I strive to create efficient and innovative engineering solutions.
-            </p>
-        </div>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center hero-bg">
+            <div class="relative z-10 container mx-auto px-4">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white fade-in-up">
+                    <span class="block text-gray-300">Hello, I'm</span>
+                    <span class="block mt-2">Swapnil Joshi</span>
+                </h1>
+                <p class="mt-4 text-xl sm:text-2xl font-normal text-gray-200 fade-in-up-delay">
+                    A Passionate Mechanical Engineer
+                </p>
+            </div>
+        </section>
 
-                <div class="card" tabindex="0" aria-expanded="false" aria-controls="experience-content" role="button" id="experience-card">
-            <h2>PROFESSIONAL EXPERIENCE</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="experience-content" aria-hidden="true">
-            <h3>Product Design and Development Engineer Intern - Manufast.in (Dec 2022 – Jun 2023)</h3>
-            <ul>
-                <li>Led design optimization efforts reducing material usage by 15%, improving cost-efficiency and sustainability.</li>
-                <li>Improved quality control by testing over 20 redesigned components, reducing defect rates by 10%.</li>
-                <li>Enhanced manufacturing efficiency by optimizing assembly processes, reducing production time by 20%.</li>
-                <li>Collaborated with cross-functional teams to increase production quality and efficiency by 30%.</li>
-                <li>Implemented Lean and Six Sigma methodologies to eliminate process inefficiencies and speed up project delivery.</li>
-            </ul>
+        <!-- Dynamic Content Sections -->
+        <div id="content-pages" class="min-h-screen hidden">
+            <!-- About Section -->
+            <section id="about" data-page="about" class="content-section bg-white dark:bg-gray-800 py-20 opacity-0">
+                <div class="container mx-auto px-4 flex flex-col md:flex-row items-center md:space-x-12">
+                    <!-- Image on the left (on larger screens) -->
+                    <div class="md:w-1/3 mb-8 md:mb-0">
+                        <img src="https://placehold.co/400x400/222222/cccccc?text=Your+Photo" alt="Placeholder for your photo" class="rounded-lg shadow-xl w-full h-auto">
+                    </div>
+                    <!-- Text content on the right -->
+                    <div class="md:w-2/3">
+                        <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">About Me</h2>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed font-normal">
+                            I am a highly motivated and results-driven Mechanical Engineer with expertise in product design, development, and manufacturing. With a strong background in software packages like SolidWorks, Creo, and ANSYS, I am dedicated to creating elegant and efficient solutions. My coursework in Product Design, Design Automation, and Material Science complements my hands-on experience in implementing continuous improvement methodologies to enhance production quality and efficiency.
+                        </p>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
+                            I specialize in cross-functional collaboration, technical documentation, and project management. Whether it's optimizing material usage or designing autonomous systems, my goal is to leverage my skills to build products that make a real impact and drive innovation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Experience Section -->
+            <section id="experience" data-page="experience" class="content-section bg-gray-100 dark:bg-gray-900 py-20 opacity-0">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12">Experience</h2>
+                    <div class="grid md:grid-cols-1 gap-8">
+                        <!-- Manufast.in Experience -->
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Product Design and Development Engineer Intern</h3>
+                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-normal">Manufast.in, India</p>
+                                </div>
+                                <span class="text-gray-500 font-normal mt-2 md:mt-0">December 2022 - June 2023</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 font-normal">
+                                <li>Led design optimization efforts that resulted in a 15% reduction in material usage, supporting sustainability and improving cost-efficiency.</li>
+                                <li>Improved quality control by conducting rigorous testing and validation on over 20 redesigned product components, which reduced defect rates by 10%.</li>
+                                <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, reducing production time by 20%.</li>
+                                <li>Collaborated with cross-functional teams to refine product specifications and ensure compliance with industry standards, contributing to a 30% increase in production quality and efficiency.</li>
+                            </ul>
+                        </div>
+    
+                        <!-- Team MechAgrinics Experience -->
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">R&D and Digging System Head</h3>
+                                    <p class="text-lg text-gray-700 dark:text-gray-300 font-normal">Team MechAgrinics, India</p>
+                                </div>
+                                <span class="text-gray-500 font-normal mt-2 md:mt-0">June 2020 - June 2022</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 font-normal">
+                                <li>Conceptualized, designed, and developed an autonomous onion harvesting system aimed at minimizing post-harvest losses and increasing operational efficiency.</li>
+                                <li>Engineered for diverse field conditions, the machine was optimized for traction, balance, and mechanical adaptability across varying soil types, resulting in a 15% increase in harvesting efficiency.</li>
+                                <li>Automated key mechanical functions, which significantly decreased the need for manual intervention and enabled a 20% reduction in manual labor requirements.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Projects Section -->
+            <section id="projects" data-page="projects" class="content-section bg-white dark:bg-gray-800 py-20 opacity-0">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">Projects</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Autonomous 360-degree Fire Extinguisher Robot -->
+                        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">Autonomous 360-degree Fire Extinguisher Robot</h3>
+                            <p class="text-gray-700 dark:text-gray-300 font-normal">Designed and built a robot that maneuvers in various environments to extinguish fires from any angle, reducing emergency response time by 25%.</p>
+                        </div>
+                        <!-- Hydraulic Lift and Drop Arm -->
+                        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">Hydraulic Lift and Drop Arm</h3>
+                            <p class="text-gray-700 dark:text-gray-300 font-normal">Developed a hydraulic lift and drop arm solution to facilitate smoother operations and move heavy loads, reducing manual handling time by 30% and decreasing injury reports among staff.</p>
+                        </div>
+                        <!-- Self-Propelled Onion Harvester -->
+                        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">Self-Propelled Onion Harvester</h3>
+                            <p class="text-gray-700 dark:text-gray-300 font-normal">Conceptualized and engineered an autonomous onion harvesting system that reduced crop bruising and improved overall harvesting efficiency by 15%.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Contact Section -->
+            <section id="contact" data-page="contact" class="content-section bg-gray-100 dark:bg-gray-900 py-20 opacity-0">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">Contact Me</h2>
+                    <div class="max-w-xl mx-auto flex flex-col md:flex-row md:space-x-8 md:justify-center items-center space-y-6 md:space-y-0">
+                        <!-- Email Card -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
+                            <a href="mailto:swapniljoshi657@gmail.com" class="flex flex-col items-center space-y-2 text-blue-600 dark:text-blue-400">
+                                <i class="fas fa-envelope text-4xl"></i>
+                                <span class="font-bold text-lg">Email</span>
+                                <span>swapniljoshi657@gmail.com</span>
+                            </a>
+                        </div>
+                        <!-- Phone Card -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
+                            <div class="flex flex-col items-center space-y-2 text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-phone-alt text-4xl"></i>
+                                <span class="font-bold text-lg">Phone</span>
+                                <span>+1 (864) 765-7801</span>
+                            </div>
+                        </div>
+                        <!-- LinkedIn Card -->
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl hover:scale-105 transition-transform duration-300 w-full md:w-auto">
+                            <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center space-y-2 text-blue-600 dark:text-blue-400">
+                                <i class="fab fa-linkedin text-4xl"></i>
+                                <span class="font-bold text-lg">LinkedIn</span>
+                                <span>/in/swapniljoshi31</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-            <h3>R&D and Digging System Head - Team MechAgrinics (Jun 2020 – Jun 2022)</h3>
-            <ul>
-                <li>Designed and developed an autonomous onion harvesting system reducing crop damage by 5% and increasing harvesting efficiency by 15%.</li>
-                <li>Engineered the machine for diverse field conditions, optimizing traction and mechanical adaptability.</li>
-                <li>Automated key mechanical functions, reducing manual labor requirements by 20% and improving safety.</li>
-                <li>Led a team of 15, achieving AIR 5 and Best Design Award for the self-propelled onion harvester.</li>
-            </ul>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; <span id="current-year"></span> Swapnil Joshi. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
 
-                <div class="card" tabindex="0" aria-expanded="false" aria-controls="projects-content" role="button" id="projects-card">
-            <h2>ACADEMIC PROJECTS</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="projects-content" aria-hidden="true">
-            <h3>Autonomous 360-degree Fire Extinguisher Robot (Aug 2021 – Jun 2022)</h3>
-            <ul>
-                <li>Designed and built a robot capable of extinguishing fires from any angle, reducing emergency response time by 25%.</li>
-            </ul>
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-            <h3>Hydraulic Lift and Drop Arm (Aug 2018 – Jun 2019)</h3>
-            <ul>
-                <li>Developed a hydraulic lift and drop arm to facilitate heavy load movement, reducing manual handling time by 30% and decreasing injury reports.</li>
-            </ul>
-        </div>
+        // Function to set the theme
+        function setTheme(isDark) {
+            if (isDark) {
+                body.classList.remove('bg-gray-100', 'text-gray-900');
+                body.classList.add('bg-gray-900', 'text-gray-100', 'dark');
+            } else {
+                body.classList.remove('bg-gray-900', 'text-gray-100', 'dark');
+                body.classList.add('bg-gray-100', 'text-gray-900');
+            }
+        }
 
-                <div class="card" tabindex="0" aria-expanded="false" aria-controls="education-content" role="button" id="education-card">
-            <h2>EDUCATION</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="education-content" aria-hidden="true">
-            <h3>Clemson University (Aug 2023 – May 2025)</h3>
-            <p>Master's in Mechanical Engineering | GPA: 3.2</p>
-            <p><strong>Relevant Coursework:</strong> Manufacturing Processes, Product Design, Intro to FEA, Design Automation, Material Selection</p>
+        // Check for saved theme in localStorage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme === 'dark');
+        } else {
+            setTheme(prefersDarkScheme.matches);
+        }
 
-            <h3>Savitribai Phule Pune University (Jul 2018 – Jun 2022)</h3>
-            <p>Bachelor's in Mechanical Engineering | GPA: 3.5</p>
-            <p><strong>Relevant Coursework:</strong> Design and Product Development, Material Science, Machine Design, Industrial Engineering</p>
-        </div>
+        // Add event listener to the toggle button
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark')) {
+                setTheme(false);
+                localStorage.setItem('theme', 'light');
+            } else {
+                setTheme(true);
+                localStorage.setItem('theme', 'dark');
+            }
+        });
 
-                <div class="card" tabindex="0" aria-expanded="false" aria-controls="contact-content" role="button" id="contact-card">
-            <h2>CONTACT</h2>
-            <span class="toggle-icon">&#9660;</span>
-        </div>
-        <div class="content" id="contact-content" aria-hidden="true">
-            <p>Email: <a href="mailto:swapniljoshi657@gmail.com">swapniljoshi657@gmail.com</a></p>
-            <p>Phone: +1 (864) 765 - 7801</p>
-            <p>Location: Clemson, SC, USA</p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/swapniljoshi31" target="_blank" rel="noopener noreferrer">linkedin.com/in/swapniljoshi31</a></p>
-        </div>
-    </main>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    <footer style="background-color:#2e1a66; color:#cbb9ff; text-align:center; padding:1rem;">
-        &copy; 2024 Swapnil Joshi. All rights reserved.
-    </footer>
+        // Handle page switching for SPA-like behavior
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentPagesContainer = document.getElementById('content-pages');
+        const homeSection = document.getElementById('home');
+        const contentPages = document.querySelectorAll('#content-pages .content-section');
 
-    <script>
-        // Toggle content visibility on card click or keyboard enter/space
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('click', () => toggleCard(card));
-            card.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggleCard(card);
-                }
-            });
-        });
-
-        function toggleCard(card) {
-            const contentId = card.getAttribute('aria-controls');
-            const content = document.getElementById(contentId);
-            const expanded = card.classList.contains('expanded');
-
-            // If the clicked card is already expanded, collapse it and stop.
-            if (expanded) {
-                card.classList.remove('expanded');
-                card.setAttribute('aria-expanded', 'false');
-                content.classList.remove('expanded');
-                content.setAttribute('aria-hidden', 'true');
-                return;
-            }
+        function showPage(pageId) {
+            // Hide all pages with a fade-out effect
+            contentPages.forEach(page => {
+                page.classList.add('hidden');
+                page.classList.remove('opacity-100');
+                page.classList.add('opacity-0');
+            });
             
-            // Collapse all other cards
-            document.querySelectorAll('.card.expanded').forEach(openCard => {
-                const openContentId = openCard.getAttribute('aria-controls');
-                const openContent = document.getElementById(openContentId);
-                openCard.classList.remove('expanded');
-                openCard.setAttribute('aria-expanded', 'false');
-                openContent.classList.remove('expanded');
-                openContent.setAttribute('aria-hidden', 'true');
-            });
+            // Show the selected page with a fade-in effect
+            const targetPage = document.querySelector(`[data-page="${pageId}"]`);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                setTimeout(() => {
+                    targetPage.classList.add('opacity-100');
+                }, 10); // A small delay to ensure the transition takes effect
+            }
+        }
 
-            // Expand the clicked card
-            card.classList.add('expanded');
-            card.setAttribute('aria-expanded', 'true');
-            content.classList.add('expanded');
-            content.setAttribute('aria-hidden', 'false');
+        function showHome() {
+            contentPagesContainer.classList.add('hidden');
+            homeSection.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-            // Scroll to the card smoothly
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    </script>
+        function showContent() {
+            homeSection.classList.add('hidden');
+            contentPagesContainer.classList.remove('hidden');
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                const pageId = event.target.getAttribute('data-page-target');
+                if (pageId) {
+                    showContent();
+                    showPage(pageId);
+                } else {
+                    showHome();
+                }
+            });
+        });
+
+        // Initially show the Home page
+        showHome();
+    </script>
 </body>
 </html>
