@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swapnil Joshi - Portfolio</title>
-    <!-- Use Tailwind CSS for modern styling -->
+    <!-- NOTE: For production, replace CDN with a local, purged CSS file for performance. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -58,9 +58,27 @@
                 opacity: 1;
             }
         }
+
+        /* Animation class for cards/timeline entries */
+        /* This class will be added/removed by JavaScript */
+        .animate-fade-in {
+            animation: fadeInUp 1.0s ease-out forwards; 
+            opacity: 0; /* Ensures the element is invisible before animation starts */
+        }
+
         .content-section {
             transition: opacity 0.5s ease-in-out;
         }
+
+        /* Mobile menu specific styling (Grouped classes for JS simplicity) */
+        .mobile-menu-open {
+            /* These classes were being toggled individually in the original JS. */
+            /* We group them here for a cleaner JS function. */
+            @apply absolute top-16 right-0 bg-gray-800 shadow-lg rounded-lg p-4 flex flex-col;
+            /* Ensures menu is wide enough on mobile */
+            min-width: 200px; 
+        }
+
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 transition-colors duration-500">
@@ -68,22 +86,25 @@
     <!-- Navigation Bar -->
     <header class="bg-gray-800 shadow-lg fixed top-0 w-full z-50">
         <nav class="container mx-auto px-4 py-4 flex items-center justify-between md:justify-end">
-            <!-- Mobile Menu button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-700 transition-colors duration-300">
+            <!-- Mobile Menu button (A11y Improvement: Added aria-label) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-300 hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
 
             <!-- Navigation Links and theme toggle -->
+            <!-- Simplified mobile menu classes to be handled by JS toggle -->
             <div id="nav-menu" class="hidden md:flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 text-lg w-full md:w-auto">
                 <ul class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 text-lg w-full md:w-auto">
-                    <li><a href="#home" class="nav-link hover:text-blue-400 transition duration-300 py-2">Home</a></li>
-                    <li><a href="#" data-page-target="about" class="nav-link hover:text-blue-400 transition duration-300 py-2">About</a></li>
+                    <!-- Links use href="#sectionId" for History API and data-page-target for JS -->
+                    <li><a href="#home" data-page-target="home" class="nav-link hover:text-blue-400 transition duration-300 py-2">Home</a></li>
+                    <li><a href="#about" data-page-target="about" class="nav-link hover:text-blue-400 transition duration-300 py-2">About</a></li>
+                    <!-- NOTE: Resume link needs to be a valid URL for deployment -->
                     <li><a href="Resume_SJ_.pdf" target="_blank" rel="noopener noreferrer" class="nav-link hover:text-blue-400 transition duration-300 py-2">Resume</a></li>
-                    <li><a href="#" data-page-target="experience" class="nav-link hover:text-blue-400 transition duration-300 py-2">Experience</a></li>
-                    <li><a href="#" data-page-target="projects" class="nav-link hover:text-blue-400 transition duration-300 py-2">Projects</a></li>
-                    <li><a href="#" data-page-target="contact" class="nav-link hover:text-blue-400 transition duration-300 py-2">Contact</a></li>
+                    <li><a href="#experience" data-page-target="experience" class="nav-link hover:text-blue-400 transition duration-300 py-2">Experience</a></li>
+                    <li><a href="#projects" data-page-target="projects" class="nav-link hover:text-blue-400 transition duration-300 py-2">Projects</a></li>
+                    <li><a href="#contact" data-page-target="contact" class="nav-link hover:text-blue-400 transition duration-300 py-2">Contact</a></li>
                 </ul>
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-700 transition-colors duration-300" aria-label="Toggle light and dark theme">
                     <i class="fas fa-sun text-gray-300 dark:hidden"></i>
                     <i class="fas fa-moon text-gray-300 hidden dark:block"></i>
                 </button>
@@ -100,15 +121,17 @@
                     <span class="block mt-2">Swapnil Joshi</span>
                 </h1>
                 <p class="mt-4 text-xl sm:text-2xl font-normal text-gray-200 fade-in-up-delay">
-                 Mechanical Engineer
+                  Mechanical Engineer
                 </p>
             </div>
         </section>
 
         <!-- Dynamic Content Sections -->
-        <div id="content-pages" class="min-h-screen hidden">
+        <!-- This container is initially hidden, will be shown when a sub-page is navigated to -->
+        <div id="content-pages" class="min-h-screen hidden"> 
+            
             <!-- About Section -->
-            <section id="about" data-page="about" class="content-section bg-white dark:bg-gray-800 py-20 opacity-0">
+            <section id="about" data-page="about" class="content-section py-20 opacity-0">
                 <div class="container mx-auto px-4 py-8 md:py-12 flex flex-col md:flex-row items-center md:space-x-12">
                     <!-- Image on the left (on larger screens) -->
                     <div class="md:w-1/3 mb-8 md:mb-0">
@@ -127,134 +150,138 @@
                 </div>
             </section>
     
-           <!-- Experience Section -->
-<section id="experience" data-page="experience" class="content-section bg-white dark:bg-gray-800 py-20 opacity-0">
-  <div class="container mx-auto px-4 py-8 md:py-12">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-gray-100">EXPERIENCE</h2>
+            <!-- Experience Section -->
+            <section id="experience" data-page="experience" class="content-section py-20 opacity-0">
+                <div class="container mx-auto px-4 py-8 md:py-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">EXPERIENCE</h2>
+                    
+                    <!-- Card layout container is now a 'group' for the hover effect -->
+                    <div class="space-y-12 group">
+            
+                      <!-- Role 1: Product Design and Development Engineer Intern -->
+                      <!-- Added: transition, group-hover:opacity-70 (fades when mouse is inside the group), and hover:opacity-100 (highlights on hover) -->
+                      <div class="experience-card bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-70 hover:opacity-100">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fas fa-hammer text-2xl text-blue-500"></i>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Product Design and Development Engineer Intern</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Manufast.in, India | December 2022 – June 2023</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base space-y-2">
+                          <li>Led design optimization efforts resulting in a 15% reduction in material usage, supporting sustainability and improving cost-efficiency.</li>
+                          <li>Improved quality control by testing and validating 20+ redesigned product components, reducing defect rates by 10%.</li>
+                          <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, cutting production time by 20%.</li>
+                          <li>Collaborated with cross-functional teams to refine product specifications and ensure compliance with industry standards, contributing to a 30% increase in production quality and efficiency.</li>
+                        </ul>
+                      </div>
+            
+                      <!-- Role 2: R&D and Digging System Head -->
+                      <!-- Added: transition, group-hover:opacity-70, and hover:opacity-100 -->
+                      <div class="experience-card bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-70 hover:opacity-100">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <i class="fas fa-flask text-2xl text-green-500"></i>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">R&D and Digging System Head</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Team MechAgrinics, India | June 2020 – June 2022</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base space-y-2">
+                          <li>Conceptualized, designed, and developed an autonomous onion harvesting system aimed at minimizing post-harvest losses and increasing operational efficiency.</li>
+                          <li>Engineered the machine for diverse field conditions, optimizing traction, balance, and mechanical adaptability, resulting in a 15% increase in harvesting efficiency.</li>
+                          <li>Automated key mechanical functions, significantly reducing manual intervention and lowering labor requirements by 20%.</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </section>
     
-    <div class="relative border-l border-gray-300 dark:border-gray-700">
-
-      <!-- Existing Role 1 -->
-      <div class="mb-10 ml-6">
-        <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-500 rounded-full ring-8 ring-white dark:ring-gray-800"></span>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Product Design and Development Engineer Intern</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Manufast.in, India | December 2022 – June 2023</p>
-        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base space-y-1">
-          <li>Led design optimization efforts resulting in a 15% reduction in material usage, supporting sustainability and improving cost-efficiency.</li>
-          <li>Improved quality control by testing and validating 20+ redesigned product components, reducing defect rates by 10%.</li>
-          <li>Enhanced manufacturing efficiency by analyzing workflow and implementing optimized assembly processes, cutting production time by 20%.</li>
-          <li>Collaborated with cross-functional teams to refine product specifications and ensure compliance with industry standards, contributing to a 30% increase in production quality and efficiency.</li>
-        </ul>
-      </div>
-
-      <!-- Existing Role 2 -->
-      <div class="mb-10 ml-6">
-        <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-green-500 rounded-full ring-8 ring-white dark:ring-gray-800"></span>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">R&D and Digging System Head</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Team MechAgrinics, India | June 2020 – June 2022</p>
-        <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300 text-sm sm:text-base space-y-1">
-          <li>Conceptualized, designed, and developed an autonomous onion harvesting system aimed at minimizing post-harvest losses and increasing operational efficiency.</li>
-          <li>Engineered the machine for diverse field conditions, optimizing traction, balance, and mechanical adaptability, resulting in a 15% increase in harvesting efficiency.</li>
-          <li>Automated key mechanical functions, significantly reducing manual intervention and lowering labor requirements by 20%.</li>
-        </ul>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-    
-<!-- Projects Section -->
-<section id="projects" data-page="projects" class="content-section bg-white dark:bg-gray-800 py-20 opacity-0">
-  <div class="container mx-auto px-4 py-8 md:py-12">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-gray-100">PROJECTS</h2>
-
-    <!-- Project Grid -->
-    <div class="grid md:grid-cols-2 gap-10">
-
-      <!-- Project 1 -->
-      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
-        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Autonomous 360° Fire Extinguisher Robot
-        </h3>
-        <div class="flex flex-col md:flex-row md:space-x-6">
-          <!-- Image -->
-          <div class="md:w-1/2 mb-4 md:mb-0">
-            <img src="https://i.imgur.com/5XLSyFS.jpeg" alt="Autonomous Fire Extinguisher Robot" class="rounded-lg shadow-lg w-full h-auto">
-          </div>
-          <!-- Text content -->
-          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
-            <p class="mb-2"><strong>Objective:</strong> Rapid-response robot to extinguish fires from any angle.</p>
-            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
-              <li>Designed navigation for tight indoor spaces.</li>
-              <li>Integrated 360° nozzle system for faster coverage.</li>
-              <li>Reduced emergency response time by 25% in simulation tests.</li>
-            </ul>
-            <p class="mt-2"><strong>My Role:</strong> CAD Design, Prototyping, Testing.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
-        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Hydraulic Lift and Drop Arm
-        </h3>
-        <div class="flex flex-col md:flex-row md:space-x-6">
-          <div class="md:w-1/2 mb-4 md:mb-0">
-            <img src="https://i.imgur.com/o6jZnhH.png" alt="Hydraulic lift prototype" class="rounded-lg shadow-lg w-full h-auto">
-          </div>
-          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
-            <p class="mb-2"><strong>Objective:</strong> Mechanism for moving heavy loads safely.</p>
-            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
-              <li>Developed compact hydraulic system for efficient lifting.</li>
-              <li>Reduced manual handling time by 30%.</li>
-              <li>Improved workplace safety, cutting injury reports.</li>
-            </ul>
-            <p class="mt-2"><strong>My Role:</strong> System Modeling, Stress Analysis, Fabrication.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300 md:col-span-2">
-        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-          Self-Propelled Onion Harvester
-        </h3>
-        <div class="flex flex-col md:flex-row md:space-x-6">
-          <div class="md:w-1/2 mb-4 md:mb-0">
-            <img src="https://i.imgur.com/TSu6dFc.jpeg" alt="Self-propelled onion harvester" class="rounded-lg shadow-lg w-full h-auto">
-          </div>
-          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
-            <p class="mb-2"><strong>Objective:</strong> Reduce crop bruising and improve harvesting efficiency.</p>
-            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
-              <li>Led the R&D and Digging System team in developing a Self-Propelled Onion Harvester from concept to prototype.</li>
-              <li>Directed a 15-member team, managing tasks across design, manufacturing, and testing phases.</li>
-              <li>Designed and integrated precision cutting blades and lifting mechanisms to reduce onion bruising and mechanical damage by ~5%.</li>
-              <li>Engineered the system to adapt across diverse soil types and terrains, improving traction, balance, and stability.</li>  
-              <li>Optimized ground clearance, wheelbase, and drive control for seamless operation on uneven agricultural landscapes.</li>  
-              <li>Achieved a 15% improvement in harvesting efficiency compared to conventional manual harvesting methods.</li>  
-              <li>Automated digging, lifting, and conveyance systems, enabling a 20% reduction in manual labor requirements.</li>  
-              <li>Improved farmer safety and consistency by reducing dependence on manual interventions in field operations.</li>  
-              <li>Focused on minimizing post-harvest losses, increasing produce shelf life and preserving crop quality.</li>  
-              <li>Applied engineering design principles to build a mechanically robust yet adaptable harvester.</li>  
-              <li>Presented the project at national-level competitions, securing All India Rank 5 (AIR 5) among peers.</li>  
-              <li>Recognized with the Best Design Award, highlighting innovation and technical excellence.</li>  
-            </ul>
-            <p class="mt-2"><strong>My Role:</strong> R&D Lead, Mechanical Design, Field Testing.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
+            
+            <!-- Projects Section -->
+            <section id="projects" data-page="projects" class="content-section py-20 opacity-0">
+                <div class="container mx-auto px-4 py-8 md:py-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-gray-100">PROJECTS</h2>
+            
+                    <!-- Project Grid -->
+                    <div class="grid md:grid-cols-2 gap-10">
+            
+                      <!-- Project 1 -->
+                      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                          Autonomous 360° Fire Extinguisher Robot
+                        </h3>
+                        <div class="flex flex-col md:flex-row md:space-x-6">
+                          <!-- Image -->
+                          <div class="md:w-1/2 mb-4 md:mb-0">
+                            <img src="https://i.imgur.com/5XLSyFS.jpeg" alt="Autonomous Fire Extinguisher Robot" class="rounded-lg shadow-lg w-full h-auto">
+                          </div>
+                          <!-- Text content -->
+                          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
+                            <p class="mb-2"><strong>Objective:</strong> Rapid-response robot to extinguish fires from any angle.</p>
+                            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+                              <li>Designed navigation for tight indoor spaces.</li>
+                              <li>Integrated 360° nozzle system for faster coverage.</li>
+                              <li>Reduced emergency response time by 25% in simulation tests.</li>
+                            </ul>
+                            <p class="mt-2"><strong>My Role:</strong> CAD Design, Prototyping, Testing.</p>
+                          </div>
+                        </div>
+                      </div>
+            
+                      <!-- Project 2 -->
+                      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                          Hydraulic Lift and Drop Arm
+                        </h3>
+                        <div class="flex flex-col md:flex-row md:space-x-6">
+                          <div class="md:w-1/2 mb-4 md:mb-0">
+                            <img src="https://i.imgur.com/o6jZnhH.png" alt="Hydraulic lift prototype" class="rounded-lg shadow-lg w-full h-auto">
+                          </div>
+                          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
+                            <p class="mb-2"><strong>Objective:</strong> Mechanism for moving heavy loads safely.</p>
+                            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+                              <li>Developed compact hydraulic system for efficient lifting.</li>
+                              <li>Reduced manual handling time by 30%.</li>
+                              <li>Improved workplace safety, cutting injury reports.</li>
+                            </ul>
+                            <p class="mt-2"><strong>My Role:</strong> System Modeling, Stress Analysis, Fabrication.</p>
+                          </div>
+                        </div>
+                      </div>
+            
+                      <!-- Project 3 -->
+                      <div class="bg-gray-100 dark:bg-gray-900 rounded-lg shadow-xl p-6 hover:shadow-2xl transition duration-300 md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+                          Self-Propelled Onion Harvester
+                        </h3>
+                        <div class="flex flex-col md:flex-row md:space-x-6">
+                          <div class="md:w-1/2 mb-4 md:mb-0">
+                            <img src="https://i.imgur.com/TSu6dFc.jpeg" alt="Self-propelled onion harvester" class="rounded-lg shadow-lg w-full h-auto">
+                          </div>
+                          <div class="md:w-1/2 text-gray-700 dark:text-gray-300">
+                            <p class="mb-2"><strong>Objective:</strong> Reduce crop bruising and improve harvesting efficiency.</p>
+                            <ul class="list-disc list-inside space-y-2 text-sm sm:text-base">
+                              <li>Led the R&D and Digging System team in developing a Self-Propelled Onion Harvester from concept to prototype.</li>
+                              <li>Directed a 15-member team, managing tasks across design, manufacturing, and testing phases.</li>
+                              <li>Designed and integrated precision cutting blades and lifting mechanisms to reduce onion bruising and mechanical damage by ~5%.</li>
+                              <li>Engineered the system to adapt across diverse soil types and terrains, improving traction, balance, and stability.</li>  
+                              <li>Optimized ground clearance, wheelbase, and drive control for seamless operation on uneven agricultural landscapes.</li>  
+                              <li>Achieved a 15% improvement in harvesting efficiency compared to conventional manual harvesting methods.</li>  
+                              <li>Automated digging, lifting, and conveyance systems, enabling a 20% reduction in manual labor requirements.</li>  
+                              <li>Improved farmer safety and consistency by reducing dependence on manual interventions in field operations.</li>  
+                              <li>Focused on minimizing post-harvest losses, increasing produce shelf life and preserving crop quality.</li>  
+                              <li>Applied engineering design principles to build a mechanically robust yet adaptable harvester.</li>  
+                              <li>Presented the project at national-level competitions, securing All India Rank 5 (AIR 5) among peers.</li>  
+                              <li>Recognized with the Best Design Award, highlighting innovation and technical excellence.</li>  
+                            </ul>
+                            <p class="mt-2"><strong>My Role:</strong> R&D Lead, Mechanical Design, Field Testing.</p>
+                          </div>
+                        </div>
+                      </div>
+            
+                    </div>
+                </div>
+            </section>
+            
     
             <!-- Contact Section -->
-            <section id="contact" data-page="contact" class="content-section bg-gray-100 dark:bg-gray-900 py-20 opacity-0">
+            <section id="contact" data-page="contact" class="content-section py-20 opacity-0">
                 <div class="container mx-auto px-4 py-8 md:py-12 text-center">
                     <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">CONTACT ME</h2>
                     <div class="max-w-xl mx-auto flex flex-col space-y-6 justify-center items-center">
@@ -298,9 +325,11 @@
         // Function to set the theme
         function setTheme(isDark) {
             if (isDark) {
+                // Ensure text and background classes are correctly toggled for a dark theme
                 body.classList.remove('bg-gray-100', 'text-gray-900');
                 body.classList.add('bg-gray-900', 'text-gray-100', 'dark');
             } else {
+                // Ensure text and background classes are correctly toggled for a light theme
                 body.classList.remove('bg-gray-900', 'text-gray-100', 'dark');
                 body.classList.add('bg-gray-100', 'text-gray-900');
             }
@@ -325,17 +354,11 @@
             }
         });
 
-        // Function to toggle the mobile menu state
+        // Function to toggle the mobile menu state (Simplified with grouped classes)
         function toggleMobileMenu() {
+            // Toggles the `hidden` class and the custom `mobile-menu-open` class defined in CSS
             navMenu.classList.toggle('hidden');
-            navMenu.classList.toggle('flex');
-            navMenu.classList.toggle('absolute');
-            navMenu.classList.toggle('top-16');
-            navMenu.classList.toggle('right-0');
-            navMenu.classList.toggle('bg-gray-800');
-            navMenu.classList.toggle('shadow-lg');
-            navMenu.classList.toggle('rounded-lg');
-            navMenu.classList.toggle('p-4');
+            navMenu.classList.toggle('mobile-menu-open');
         }
 
         // Add event listener to the mobile menu button
@@ -350,10 +373,50 @@
         const contentPagesContainer = document.getElementById('content-pages');
         const homeSection = document.getElementById('home');
         const contentPages = document.querySelectorAll('#content-pages .content-section');
+        
+        // Configuration for the staggered animation delay
+        const STAGGER_DELAY_MS = 400; 
 
-        function showPage(pageId) {
+        function showPage(pageId, shouldUpdateHistory = true) {
+            // Find the target element ID
+            const targetElementId = pageId === 'home' ? 'home' : pageId;
+
+            // Update browser history (History API Improvement)
+            if (shouldUpdateHistory) {
+                // Use a simple hash for routing
+                const hash = pageId === 'home' ? '' : `#${pageId}`;
+                history.pushState({ page: pageId }, '', hash);
+            }
+
+            // Determine if the content container should be visible
+            if (pageId === 'home') {
+                contentPagesContainer.classList.add('hidden');
+                homeSection.classList.remove('hidden');
+                // Scroll to top for the Home page
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                return;
+            }
+
+            // Show the content container and hide home
+            homeSection.classList.add('hidden');
+            contentPagesContainer.classList.remove('hidden');
+
             // Hide all pages with a fade-out effect
             contentPages.forEach(page => {
+                // Find all potential animated elements (now using the specific class 'experience-card')
+                const animatedElements = page.querySelectorAll('.experience-card');
+                
+                // CRITICAL: Reset the animation state before hiding
+                animatedElements.forEach(el => {
+                    // 1. Remove the animation class if it ran
+                    el.classList.remove('animate-fade-in'); 
+                    // 2. Add the Tailwind utility class to make it invisible again
+                    el.classList.add('opacity-0'); 
+                    // 3. Reset the group hover opacity state (important for a clean reset)
+                    el.classList.add('group-hover:opacity-70');
+                    el.classList.add('hover:opacity-100');
+                });
+
                 page.classList.add('hidden');
                 page.classList.remove('opacity-100');
                 page.classList.add('opacity-0');
@@ -363,43 +426,86 @@
             const targetPage = document.querySelector(`[data-page="${pageId}"]`);
             if (targetPage) {
                 targetPage.classList.remove('hidden');
+
+                // NEW LOGIC: Trigger staggered animation for the experience page
+                if (pageId === 'experience') {
+                    // Find all animated elements (the experience cards)
+                    const animatedElements = targetPage.querySelectorAll('.experience-card');
+                    animatedElements.forEach((el, index) => {
+                        // Remove the group hover classes temporarily while fading in to prevent conflict
+                        el.classList.remove('group-hover:opacity-70');
+                        el.classList.remove('hover:opacity-100');
+
+                        // 1. Remove the static hidden state (opacity-0)
+                        el.classList.remove('opacity-0'); 
+                        
+                        // 2. Add delay logic
+                        const delay = index * STAGGER_DELAY_MS; 
+
+                        setTimeout(() => {
+                            // Force repaint/reflow to reset animation state
+                            void el.offsetWidth; 
+                            
+                            // 3. Add the class to start the animation
+                            el.classList.add('animate-fade-in'); 
+
+                            // Re-apply the group hover classes after animation is expected to finish
+                            setTimeout(() => {
+                                el.classList.add('group-hover:opacity-70');
+                                el.classList.add('hover:opacity-100');
+                            }, 1000); // 1.0s is the animation duration
+                        }, delay);
+                    });
+                }
+
                 setTimeout(() => {
                     targetPage.classList.add('opacity-100');
-                }, 10); // A small delay to ensure the transition takes effect
+                    // Scroll to the top of the content area
+                    window.scrollTo({ top: document.querySelector('main').offsetTop, behavior: 'smooth' });
+                }, 10); 
             }
         }
 
-        function showHome() {
-            contentPagesContainer.classList.add('hidden');
-            homeSection.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function showContent() {
-            homeSection.classList.add('hidden');
-            contentPagesContainer.classList.remove('hidden');
-        }
-
+        // Click handler for navigation links
         navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                const pageId = event.target.getAttribute('data-page-target');
-                if (pageId) {
-                    showContent();
-                    showPage(pageId);
-                } else {
-                    showHome();
-                }
-                
-                // Collapse the menu on link click if it's currently visible
-                // and the screen is small (less than 768px, which is Tailwind's 'md' breakpoint)
-                if (!navMenu.classList.contains('hidden') && window.innerWidth < 768) {
-                    toggleMobileMenu();
-                }
-            });
+            // Only attach click handler to links that have a data-page-target
+            if (link.hasAttribute('data-page-target')) {
+                link.addEventListener('click', (event) => {
+                    // Prevent default anchor jump 
+                    event.preventDefault(); 
+                    
+                    const pageId = event.target.getAttribute('data-page-target');
+                    // showPage handles the logic for Home/Content sections
+                    showPage(pageId); 
+                    
+                    // Collapse the menu on link click if it's currently visible on mobile
+                    if (!navMenu.classList.contains('hidden') && window.innerWidth < 768) {
+                        toggleMobileMenu();
+                    }
+                });
+            }
         });
 
-        // Initially show the Home page
-        showHome();
+        // Handle browser back/forward buttons (History API Improvement)
+        window.addEventListener('popstate', (event) => {
+            const hash = window.location.hash.substring(1); // Get hash without '#'
+            const pageId = hash || 'home'; // Default to 'home' if hash is empty
+
+            // Show the page without pushing a new state to history
+            showPage(pageId, false); 
+        });
+
+        // Initial load logic (Reads the hash from the URL)
+        function initialLoad() {
+            const hash = window.location.hash.substring(1); // Get hash without '#'
+            const pageId = hash || 'home'; 
+
+            // Show the correct page on initial load
+            showPage(pageId, false); 
+        }
+
+        // Run initial load function
+        initialLoad();
     </script>
 </body>
 </html>
